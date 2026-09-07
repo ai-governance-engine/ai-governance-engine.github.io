@@ -1,0 +1,144 @@
+{
+    "execution_date": "2026-09-07T22:36:44.076238",
+    "total_tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "test_cases": [
+        {
+            "test_id": "TC-01",
+            "timestamp": "2026-09-07T22:36:44.075239",
+            "payload_injected": {
+                "required_clearance": 1,
+                "transaction_amount": 500.0,
+                "is_phi_data": false
+            },
+            "expected_status": "PASSED",
+            "actual_status": "PASSED",
+            "is_pass": true,
+            "audit_trail": {
+                "timestamp": 1788820604.0732386,
+                "action": "Z3_VERIFICATION",
+                "payload": {
+                    "required_clearance": 1,
+                    "transaction_amount": 500.0,
+                    "is_phi_data": false
+                },
+                "context": {
+                    "user_clearance": 3,
+                    "max_transaction": 10000.0,
+                    "user_is_clinical": false
+                },
+                "status": "PASSED"
+            }
+        },
+        {
+            "test_id": "TC-02",
+            "timestamp": "2026-09-07T22:36:44.075239",
+            "payload_injected": {
+                "required_clearance": 3,
+                "transaction_amount": 0.0,
+                "is_phi_data": false
+            },
+            "expected_status": "PASSED",
+            "actual_status": "PASSED",
+            "is_pass": true,
+            "audit_trail": {
+                "timestamp": 1788820604.0752392,
+                "action": "Z3_VERIFICATION",
+                "payload": {
+                    "required_clearance": 3,
+                    "transaction_amount": 0.0,
+                    "is_phi_data": false
+                },
+                "context": {
+                    "user_clearance": 3,
+                    "max_transaction": 10000.0,
+                    "user_is_clinical": false
+                },
+                "status": "PASSED"
+            }
+        },
+        {
+            "test_id": "TC-03",
+            "timestamp": "2026-09-07T22:36:44.075239",
+            "payload_injected": {
+                "required_clearance": 1,
+                "transaction_amount": 99999.0,
+                "is_phi_data": false
+            },
+            "expected_status": "BLOCKED_UNSAT",
+            "actual_status": "BLOCKED_UNSAT",
+            "is_pass": true,
+            "audit_trail": {
+                "timestamp": 1788820604.0752392,
+                "action": "Z3_VERIFICATION",
+                "payload": {
+                    "required_clearance": 1,
+                    "transaction_amount": 99999.0,
+                    "is_phi_data": false
+                },
+                "context": {
+                    "user_clearance": 3,
+                    "max_transaction": 10000.0,
+                    "user_is_clinical": false
+                },
+                "status": "BLOCKED_UNSAT"
+            }
+        },
+        {
+            "test_id": "TC-04",
+            "timestamp": "2026-09-07T22:36:44.076238",
+            "payload_injected": {
+                "required_clearance": 3,
+                "transaction_amount": 0.0,
+                "is_phi_data": true
+            },
+            "expected_status": "BLOCKED_UNSAT",
+            "actual_status": "BLOCKED_UNSAT",
+            "is_pass": true,
+            "audit_trail": {
+                "timestamp": 1788820604.0752392,
+                "action": "Z3_VERIFICATION",
+                "payload": {
+                    "required_clearance": 3,
+                    "transaction_amount": 0.0,
+                    "is_phi_data": true
+                },
+                "context": {
+                    "user_clearance": 3,
+                    "max_transaction": 10000.0,
+                    "user_is_clinical": false
+                },
+                "status": "BLOCKED_UNSAT"
+            }
+        },
+        {
+            "test_id": "TC-05",
+            "timestamp": "2026-09-07T22:36:44.076238",
+            "payload_injected": {
+                "required_clearance": 5,
+                "transaction_amount": 0.0,
+                "is_phi_data": false
+            },
+            "expected_status": "BLOCKED_UNSAT",
+            "actual_status": "BLOCKED_UNSAT",
+            "is_pass": true,
+            "audit_trail": {
+                "timestamp": 1788820604.0762386,
+                "action": "Z3_VERIFICATION",
+                "payload": {
+                    "required_clearance": 5,
+                    "transaction_amount": 0.0,
+                    "is_phi_data": false
+                },
+                "context": {
+                    "user_clearance": 3,
+                    "max_transaction": 10000.0,
+                    "user_is_clinical": false
+                },
+                "status": "BLOCKED_UNSAT"
+            }
+        }
+    ],
+    "electronic_signature": "d7082df6ad5544db3d1427a52929dd4f8b3d1c421caba5c1fc54945d97e382da"
+}
