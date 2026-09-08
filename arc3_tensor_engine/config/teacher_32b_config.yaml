@@ -1,0 +1,13 @@
+# Teacher Model Configuration
+model_name: "DeepSeek-R1-Distill-Qwen-32B"
+parameters:
+  hidden_size: 5120
+  intermediate_size: 27648
+  num_query_heads: 40
+  num_kv_heads: 8
+  head_dim: 128
+  num_layers: 64
+compression:
+  method: "TT-SVD"
+  tensor_rank: 128
+  target_size_gb: 7.1

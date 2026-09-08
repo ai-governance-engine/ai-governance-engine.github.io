@@ -1,0 +1,13 @@
+# Student Model Configuration
+model_name: "DeepSeek-R1-Distill-Qwen-1.5B"
+parameters:
+  hidden_size: 1536
+  intermediate_size: 8960
+  num_query_heads: 12
+  num_kv_heads: 2
+  head_dim: 128
+  num_layers: 28
+compression:
+  method: "TT-SVD"
+  tensor_rank: 64
+  target_size_mb: 220

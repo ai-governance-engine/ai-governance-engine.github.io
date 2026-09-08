@@ -1,0 +1,14 @@
+# 9 Domain LoRA Configuration
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.0
+domains:
+  1: "topological_connectivity"
+  2: "euclidean_isometry"
+  3: "periodic_tessellation"
+  4: "cellular_automata"
+  5: "raycasting_pathfinding"
+  6: "algebraic_palette"
+  7: "morphological_occlusion"
+  8: "arithmetic_parity"
+  9: "reversible_planning"
