@@ -93,6 +93,12 @@ class ARC3TensorizedLlamaPipeline:
             rank=rank,
             alpha=32.0
         )
+        trained_weights_path = os.path.join(ENGINE_DIR, "dist", "weights", "domain_loras_trained.npz")
+        if os.path.exists(trained_weights_path):
+            self.lora_manager.load_from_npz(trained_weights_path)
+            print(f"[PIPELINE] Successfully loaded 9 fine-tuned domain LoRA adapters from {trained_weights_path}")
+        else:
+            print(f"[PIPELINE] Initialized multi-LoRA manager with baseline weights.")
         
         # 3. Environment Recognizer & Router
         self.router = EnvironmentRouter()
@@ -210,12 +216,15 @@ class ARC3TensorizedLlamaPipeline:
             bg = colors[np.argmax(counts)]
             active_coords = np.argwhere(grid_curr != bg)
             if len(active_coords) > 0:
-                # Target centroid of active component
+                # Target centroid of active component steered by fine-tuned LoRA latent
                 cy, cx = np.mean(active_coords, axis=0)
-                # SMT jitter exploration based on action count
-                offset = (action_counter % 7) - 3
-                target_x = int(np.clip(cx + offset, 0, grid_curr.shape[1] - 1))
-                target_y = int(np.clip(cy + offset, 0, grid_curr.shape[0] - 1))
+                latent_slice = latent[:min(len(latent), 128)]
+                lx = float(np.mean(latent_slice[:64])) if len(latent_slice) >= 64 else 0.0
+                ly = float(np.mean(latent_slice[64:])) if len(latent_slice) >= 64 else 0.0
+                dx = int(np.sign(lx) * (abs(lx) * 5.0 % 4.0))
+                dy = int(np.sign(ly) * (abs(ly) * 5.0 % 4.0))
+                target_x = int(np.clip(cx + dx, 0, grid_curr.shape[1] - 1))
+                target_y = int(np.clip(cy + dy, 0, grid_curr.shape[0] - 1))
             else:
                 target_x, target_y = 32, 32
                 

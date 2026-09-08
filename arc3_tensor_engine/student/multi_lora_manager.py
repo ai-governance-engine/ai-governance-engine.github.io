@@ -98,3 +98,31 @@ class MultiLoRAManager:
         """Returns total memory footprint of all 9 LoRA adapters."""
         single_adapter_bytes = (self.rank * self.in_features + self.out_features * self.rank) * 4
         return single_adapter_bytes * 9
+
+    def save_to_npz(self, filepath: str) -> None:
+        """Serializes all 9 LoRA adapter weights to a compressed .npz archive."""
+        data = {
+            "hidden_dim": self.in_features,
+            "rank": self.rank,
+            "alpha": self.alpha
+        }
+        for d in range(1, 10):
+            data[f"A_{d}"] = self.adapters[d].A
+            data[f"B_{d}"] = self.adapters[d].B
+        np.savez_compressed(filepath, **data)
+
+    def load_from_npz(self, filepath: str) -> None:
+        """Loads trained weights for all 9 LoRA adapters from a compressed .npz archive."""
+        data = np.load(filepath)
+        for d in range(1, 10):
+            key_a = f"A_{d}"
+            key_b = f"B_{d}"
+            if key_a in data and key_b in data:
+                a_w = data[key_a]
+                b_w = data[key_b]
+                self.adapters[d].A = a_w.astype(np.float32)
+                self.adapters[d].B = b_w.astype(np.float32)
+                self.adapters[d].rank = a_w.shape[0]
+                self.adapters[d].in_features = a_w.shape[1]
+                self.adapters[d].out_features = b_w.shape[0]
+                self.adapters[d].scaling = self.adapters[d].alpha / self.adapters[d].rank

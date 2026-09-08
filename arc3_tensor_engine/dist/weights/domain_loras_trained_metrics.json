@@ -1,0 +1,74 @@
+{
+  "domain_1": {
+    "name": "Topology",
+    "init_loss": 0.0009473629179410636,
+    "final_loss": 0.00015792157500982285,
+    "loss_reduction_pct": 83.33040358461157,
+    "train_time_sec": 1.5523061002604663,
+    "samples": 1112
+  },
+  "domain_2": {
+    "name": "Isometry",
+    "init_loss": 0.005307693965733051,
+    "final_loss": 0.001296395668759942,
+    "loss_reduction_pct": 75.57516169678227,
+    "train_time_sec": 1.5320048998109996,
+    "samples": 1111
+  },
+  "domain_3": {
+    "name": "Tessellation",
+    "init_loss": 0.010594582185149193,
+    "final_loss": 0.0031256014481186867,
+    "loss_reduction_pct": 70.4981150412901,
+    "train_time_sec": 1.6705637001432478,
+    "samples": 1111
+  },
+  "domain_4": {
+    "name": "CellularAutomata",
+    "init_loss": 0.0004482608928810805,
+    "final_loss": 0.000137493567308411,
+    "loss_reduction_pct": 69.32733381564766,
+    "train_time_sec": 1.5758475000038743,
+    "samples": 1111
+  },
+  "domain_5": {
+    "name": "Raycasting",
+    "init_loss": 0.0012920004082843661,
+    "final_loss": 0.00017517003288958222,
+    "loss_reduction_pct": 86.44195220323586,
+    "train_time_sec": 1.5587411997839808,
+    "samples": 1111
+  },
+  "domain_6": {
+    "name": "Palette",
+    "init_loss": 0.0030127777718007565,
+    "final_loss": 0.000994032947346568,
+    "loss_reduction_pct": 67.00609793889882,
+    "train_time_sec": 1.5354106002487242,
+    "samples": 1111
+  },
+  "domain_7": {
+    "name": "Occlusion",
+    "init_loss": 0.004943841602653265,
+    "final_loss": 0.0009378234972245991,
+    "loss_reduction_pct": 81.03047037912204,
+    "train_time_sec": 1.5662091998383403,
+    "samples": 1111
+  },
+  "domain_8": {
+    "name": "Parity",
+    "init_loss": 3.1913928978610784e-05,
+    "final_loss": 4.577741492539644e-06,
+    "loss_reduction_pct": 85.6559764370983,
+    "train_time_sec": 1.565885600168258,
+    "samples": 1111
+  },
+  "domain_9": {
+    "name": "Reversal",
+    "init_loss": 0.0009623811347410083,
+    "final_loss": 9.206687536789104e-05,
+    "loss_reduction_pct": 90.43342891455706,
+    "train_time_sec": 1.5461176000535488,
+    "samples": 1111
+  }
+}
